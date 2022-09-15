@@ -13,11 +13,11 @@ const app = express();
 app.use(morgan("dev"));
 
 // Info GET endpoint
-app.get("/info", (req, res, next) => {
+app.get("/info/", (req, res, next) => {
   res.send("This is a proxy service");
 });
 
-app.use("/", createProxyMiddleware({ target: process.env.PROXY_URL, changeOrigin: true }));
+app.use("/api/", createProxyMiddleware({ target: process.env.PROXY_URL, changeOrigin: true }));
 
 // Start Proxy
 app.listen(PORT, HOST, () => {
