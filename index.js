@@ -17,7 +17,7 @@ app.get("/info", (req, res, next) => {
   res.send("This is a proxy service");
 });
 
-app.use("/stack-go", createProxyMiddleware({ target: process.env.PROXY_URL, changeOrigin: true }));
+app.use("/", createProxyMiddleware({ target: process.env.PROXY_URL, changeOrigin: true }));
 
 // Start Proxy
 app.listen(PORT, HOST, () => {
